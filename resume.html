@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Generator</title>
+    <link rel="stylesheet" href="style1.css">
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+</head>
+<body>
+
+<div class="container" id="cv-form">
+    <h1 class="text-center my-2" style="text-align: center; font-family: Lucida Calligraphy ; font-size: 50px;"><u>Resume Builder</u></h1>
+<p class="text-center my-2"></p>
+<div class="row" style="text-align: center;">
+    <div class="col-md-6">
+       <h3 style="text-align: center; font-size: x-large;"><u>Personal Information</u></h3>
+    <div class="form group mt-2">
+        <label for="namefiled">Name  -:&nbsp;&nbsp;</label>
+        <input type="text" class="form-control" id="namefiled" placeholder="Enter Your Name ">
+    </div><br>  
+     <div class="form group mt-2">
+        <label for="contactfiled">Contact  -:&nbsp;</label>
+        <input type="tel" class="form-control" id="contactfiled" placeholder="Enter Your Mobile No." maxlength="10">
+    </div><br>
+
+
+    <div class="form group">
+        <label for="addressfiled">Address  -:&nbsp;</label>
+        <textarea class="form-control"   id="addressfiled"
+         placeholder="Enter Your Address"
+         rows="1"
+         ></textarea>
+    </div><br>
+             <div class="form-group">
+                <label for="imgfiled">&nbsp;&nbsp;&nbsp;Upload Image     -:</label>
+                 <input type="file" class="form-control mt-2" id="imgfiled" required>
+            </div><br>
+    <h3 class="text-secondary" style="font-size: x-large;"><u>Social Links</u></h3>
+
+       <div class="form group">
+          <label for="linkedfiled">Linkedin  -:&nbsp;&nbsp;</label>
+          <input type="text" class="form-control" id="linkedfiled" placeholder="Enter linkedin id">
+      </div><br>
+
+
+      <div class="form group">
+          <label for="githubfiled">Git/GitHub  -:&nbsp;</label>
+        <input type="text" class="form-control" id="githubfiled" placeholder="Enter git/github id">
+      </div><br>
+
+
+    <div class="form group mt-2">
+        <label for="instafiled">Instagram   -: &nbsp; </label>
+        <input type="text" class="form-control" id="instafiled" placeholder="Enter instagram id">
+    </div><br>
+
+    </div>
+    <div class="col-md-6">
+ <h3 style="text-align: center; font-size: x-large;"><u>Professional Inforamation</u></h3>
+
+ <div class="form group mt-2">
+    <label for="">&nbsp;Objective  -:&nbsp;&nbsp;&nbsp;</label>
+    <textarea class="form-control"   
+     placeholder="Enter Your Objective"
+     id="objectivefiled"
+     rows="1"
+     ></textarea>
+    
+</div><br>
+
+<div class="form group mt-2 "id="WE">
+    <label for="">Experience -:&nbsp;&nbsp;&nbsp</label>
+    <textarea class="form-control wefiled"   
+     placeholder="If any otherwise write N/A"
+       id=""
+     rows="1"
+     ></textarea>
+
+     <!-- new text area -->
+
+     <div class="container text-center mt-2"id="weAddBut"><br>
+      <button onclick="addWeFiled()" class="btn btn-primery btn-sm" style="background-color:rgb(186, 189, 190);" >ADD</button>
+     </div>
+</div><br>
+
+
+ 
+
+<div class="form group mt-2" id="AQ">
+    <label for="">Qualification  -:&nbsp;&nbsp;</label>
+    <textarea class="form-control aqfiled mt-2"   
+     placeholder="10th/12th/Graduation percentage & year"
+     
+     rows="1"
+     ></textarea>
+
+     <!-- new1 text goes here -->
+     <div class="container text-center mt-3 "id="aqAddBut"><br> 
+        <button onclick="addAcademicqualifiaction()" class="btn btn-primery btn-sm" style="background-color:rgb(186, 189, 190);" >ADD</button>
+     </div>
+</div>
+
+ </div>
+</div><br>
+<div class="container text-center mt-3 mb-2" style="text-align: center;">
+   <button onclick="generateResume()" class=" button.btn.btn-primery-btn-lg" style="background-color:rgb #c2baba;border-radius:3px;">Generate Resume</button>
+</div>
+</div>
+
+
+<!-- cv template -->
+<div class="container"id="cv-template">
+    <div class="row">
+        <div class="col-md-4 text-center py-3 background" style="text-align: right; margin-right: 50px;">
+           <!-- first col -->
+           <img src="https://cdn-icons-png.flaticon.com/512/1053/1053244.png?w=360" alt=""class="img-fluid my-img" id="imgTemplate">
+           <div class="container">
+            <p id="nameTemplate" style="font-size: larger;font-weight: bold;"></p>
+            <i class="fab fa-mobile" id="contactTemplate"></i>&nbsp;|&nbsp;
+            <i class="fab fa-home" id="addressTemplate"></i>
+            <hr/>
+            <a href="#1" id="linkedinTemplate" target="_blank">https://www.Linkedin.com/</a>&nbsp;|&nbsp;
+            <a href="#2" id="githubTemplate" target="_blank">https://www.GitHub.com/</a>&nbsp;|&nbsp;
+            <a href="#3" id="instaTemplate" target="_blank">https://www.instagram.com/</a></p>
+           </div>
+        </div>
+
+  
+        <div class="col-md-8 py-3">
+          <!-- second col -->
+          <h1 class=""id="nameTemplate2" style="display: none;"></h1>
+          <!-- objective card -->
+          <div class="card mt-3">
+            <div class="card-header" style="background-color:rgb(130, 17, 206);">    <!-- bootstrap-->
+                <h3 style="text-align: left; font-family: Lucida Calligraphy ; font-size: 20px;"><u>Objective</u></h3>
+
+            </div>
+            <div class="card-body">
+                <p id="objectiveTemplate" style="text-align: left; margin-top: 5px; margin-left: 5px; padding: 5px;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam, deserunt?</p>
+            </div>
+          </div>
+
+          <!-- work Experience card -->
+        
+              <div class="card mt-3">
+                <div class="card-header" style="background-color:rgb(130, 17, 206);">    <!-- bootstrap-->
+                    <h3 style="text-align:left; font-family: Lucida Calligraphy ; font-size: 20px;">Experience</h3>
+    
+                </div>
+                <div class="card-body">
+                 <ul id="workExperienceTemplate">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                 </ul>
+                </div>
+              </div>
+
+
+              <!-- Acandemic Qualification -->
+
+              <div class="card mt-3">
+                <div class="card-header" style="background-color:rgb(130, 17, 206);">    <!-- bootstrap-->
+                    <h3 style="text-align: left; font-family: Lucida Calligraphy ; font-size: 20px;">Qualification</h3>
+    
+                </div>
+                <div class="card-body">
+                 <ul id="academicQualificationTemplate">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                 </ul>
+                </div>
+              </div>
+            
+                    <div class="container text-center mt-3">
+                        <button onclick="printCV()" class="btn background" style="background-color:#e2e2e2;">Print</button><br><br>
+                        <a href="resume.html">Back to Home</a>
+                    </div>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>    
+<script src="script.js"></script>
+<script>
+const addWeFiled = ()=>{
+    // console.log("add new filed")
+    let node = document.createElement('textarea');
+    node.classList.add('form-control')
+    node.classList.add('wefiled')
+    node.classList.add('mt-2')
+    node.setAttribute('placeholder','If any otherwise write N/A')
+    node.setAttribute('rows',1)
+
+    let weAddBut = document.getElementById('weAddBut');
+    let WEob = document.getElementById('WE');
+    WEob.insertBefore(node,weAddBut)
+
+}
+const addAcademicqualifiaction = () =>{
+    let node = document.createElement('textarea');
+    node.classList.add('form-control')
+    node.classList.add('aqfiled')
+    node.classList.add('mt-2')
+    node.setAttribute('rows',1)
+    node.setAttribute('placeholder','10th/12/Graduation percentage & year');
+
+    let AQob = document.getElementById('AQ');
+    let aqAddBut = document.getElementById('aqAddBut');
+    AQob.insertBefore(node,aqAddBut);
+
+
+}
+</script>    
+</body>
+</html>
